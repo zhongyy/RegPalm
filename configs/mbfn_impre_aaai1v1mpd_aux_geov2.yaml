@@ -1,0 +1,23 @@
+model: 
+  name: "mbfn"
+  pretrained: "/mnt/datasets/pretrained/imagenet_mbfn_f512"
+
+data:
+  name: "self_define"
+  train_list: "/mnt/datasets/combine/imglists/sublist_1v1_train_rawalign_onlympd.txt"
+  test_list: "/mnt/datasets/combine/imglists/sublist_1v1_test_rawalign_onlympd.txt"
+  aux_list: "/mnt/datasets/bezier/imglists/geolistv2_rawalign.txt"
+  aux_ratio: 1.0
+  aux_type: "w270h260"
+
+train:
+  batch_size: 128
+  gpus: [0,1,2,3]
+  save_freq: 1
+  test_freq: 1
+  optim:
+    lr_start: 0.01 
+    steps: [10, 15, 18]
+    total_epoch: 20
+
+

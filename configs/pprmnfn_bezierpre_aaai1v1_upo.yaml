@@ -1,0 +1,23 @@
+model: 
+  name: "pprmbfn" 
+  pretrained: "./model/mbfn_impre_aaai1v1mpd_aux_geov2_upo_20230529_110216/020.ckpt"
+data:
+  name: "self_define"
+  train_list: "/mnt/datasets/combine/imglists/imglist_1v1_train_allright.txt"
+  test_list: "/mnt/datasets/combine/imglists/imglist_1v1_test_allright.txt"
+  transform_type: "classic_transform_with_overcrop"
+  use_superclass: True
+  return_2samples: True
+
+train:
+  batch_size: 128
+  gpus: [4, 5, 6, 7]
+  save_freq: 1
+  test_freq: 1
+  optim:
+    lr_start: 0.01 
+    steps: [26, 36, 45]
+    total_epoch: 50
+
+
+
